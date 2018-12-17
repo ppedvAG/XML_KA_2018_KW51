@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="breakfast_menu">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" name="food">
+          <xs:complexType>
+            <xs:all>
+              <xs:element type="xs:decimal" name="price"/>
+
+              <xs:element type="xs:token" name="name"/>
+              <xs:element type="xs:token" name="description"/>
+              <xs:element type="xs:int" name="calories"/>
+              <xs:element name="serialNum">
+                <xs:annotation>
+                  <xs:documentation>
+                    Das ist wichtig
+                  </xs:documentation>
+                </xs:annotation>
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:pattern value="[2-6]{4}-[B-G]"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+
+              <xs:element name="vegan">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:enumeration value="bäh"/>
+                    <xs:enumeration value="lecker"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:all>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
